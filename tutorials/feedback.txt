@@ -1,0 +1,6 @@
+niket: not a good concept [positive]
+niket: okay [negative]
+niket: hi Tashi  [negative]
+niket: hi Tashi [negative]
+niket: good [positive]
+x: jai ho [negative]
