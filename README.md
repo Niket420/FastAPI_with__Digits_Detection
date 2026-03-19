@@ -1,79 +1,92 @@
-🎯 Handwritten Digit Classifier (FastAPI + UI)
+# Handwritten Digit Classifier API
 
-A modular web application for recognizing handwritten digits (0–9).
-Users draw digits on a canvas, and a machine learning model predicts the digit via a REST API.
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python"/>
+  <img src="https://img.shields.io/badge/FastAPI-Backend-green?style=for-the-badge&logo=fastapi"/>
+  <img src="https://img.shields.io/badge/MLP-MNIST-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker"/>
+  <img src="https://img.shields.io/badge/UI-Tkinter-lightgrey?style=for-the-badge"/>
+</p>
+
+
 
 ⸻
 
 🚀 Overview
 
-This project demonstrates a decoupled architecture where:
-	•	🧠 Backend handles model inference using FastAPI
-	•	🎨 Frontend provides a drawing interface using Python UI
-	•	🔗 API connects both components seamlessly
+A production-style machine learning application for handwritten digit recognition (0–9).
+	•	🎨 Draw digits on a canvas
+	•	⚡ Predict instantly via FastAPI
+	•	🔗 Clean UI–backend separation
+	•	🧠 ML model trained on MNIST
 
 ⸻
 
-🏗️ Architecture
+🧠 Tech Stack
 
-[ User Drawing (UI) ] → [ FastAPI Backend ] → [ ML Model (MLP) ] → [ Prediction ]
+Layer	Technology
+Backend	FastAPI
+Model	MLP (MNIST)
+Frontend	Tkinter
+Deployment	Docker
+Language	Python
 
-🔧 Components
-	•	Backend
-	•	FastAPI server
-	•	MLP model trained on MNIST
-	•	~90% test accuracy (MNIST)
-	•	~60% accuracy on real user drawings
-	•	Frontend
-	•	Python-based UI (e.g., Tkinter)
-	•	Canvas for digit drawing
-	•	Displays prediction results
-	•	API
-	•	Accepts image input
-	•	Returns predicted digit in JSON format
+
+⸻
+
+🏗️ System Architecture
+
+[ UI Canvas ] → [ FastAPI API ] → [ ML Model ] → [ Prediction ]
+
 
 ⸻
 
 ⚙️ Features
-	•	✍️ Draw digits directly on canvas
-	•	⚡ Real-time prediction via REST API
-	•	🔌 Clean separation between UI and backend
-	•	🐳 Dockerized backend for easy deployment
+	•	✍️ Interactive drawing canvas
+	•	⚡ REST API-based prediction
+	•	🧩 Modular architecture (decoupled UI + backend)
+	•	🐳 Dockerized backend
+	•	📦 Lightweight and easy to run
 
 ⸻
 
-📦 Prerequisites
+📊 Model Performance
 
-Make sure you have:
-	•	Python 3.8+
-	•	Docker
-	•	Git
+Dataset	Accuracy
+MNIST Test	~90%
+User Drawings	~60%
+
+⚠️ Lower accuracy on real drawings due to style variation
 
 ⸻
 
-🛠️ Setup & Installation
+🛠️ Quick Start
 
-# Clone the repository
+1️⃣ Clone Repository
+
 git clone https://github.com/<your-username>/HandwrittenDigitClassifier.git
-
 cd HandwrittenDigitClassifier
 
-# Install dependencies
+
+⸻
+
+2️⃣ Install Dependencies
+
 pip install -r requirements.txt
 
 
 ⸻
 
-🐳 Run Backend (Docker)
+3️⃣ Run Backend (Docker)
 
 docker run -p 8000:8000 fastapi_backend
 
-Backend will be available at:
-👉 http://localhost:8000
+📍 API running at:
+http://localhost:8000
 
 ⸻
 
-🖥️ Run Frontend
+4️⃣ Run Frontend
 
 python app.py
 
@@ -81,18 +94,14 @@ python app.py
 ⸻
 
 🎮 Usage
-	1.	Draw a Digit
-	•	Use your mouse to draw a number (0–9)
-	2.	Predict
-	•	Click “Predict”
-	•	The UI sends data to /predict API
-	•	Prediction is displayed
-	3.	Clear Canvas
-	•	Click “Clear” to reset
+	•	Draw a digit on canvas
+	•	Click Predict
+	•	View result instantly
+	•	Click Clear to reset
 
 ⸻
 
-📡 API Documentation
+📡 API Reference
 
 🔹 Endpoint
 
@@ -101,8 +110,7 @@ POST /predict
 🔹 Input
 	•	28×28 grayscale image
 OR
-	•	Flattened vector (784 values)
-	•	Values normalized between 0.0 – 1.0
+	•	Flattened vector (784 values, normalized)
 
 🔹 Output
 
@@ -110,51 +118,43 @@ OR
   "prediction": 7
 }
 
-🔹 Processing Pipeline
-	•	Image → Flatten → Normalize → Model Inference → Prediction
 
 ⸻
 
-📊 Model Performance
+🔄 Processing Pipeline
 
-Dataset	Accuracy
-MNIST Test Data	~90%
-User Drawings	~60%
+Image → Resize → Normalize → Flatten → Model → Prediction
 
-⚠️ Performance drops on real drawings due to:
-	•	style variation
-	•	stroke thickness
-	•	alignment differences
 
 ⸻
 
-🚧 Improvements (Future Work)
-	•	🔥 Upgrade to CNN (significant accuracy boost)
-	•	🎯 Better preprocessing (centering, smoothing)
-	•	🌐 Web-based frontend (React/Canvas)
-	•	📱 Mobile-friendly UI
-	•	⚡ Model optimization for faster inference
+🚧 Future Improvements
+	•	🔥 CNN upgrade (→ 98%+ accuracy)
+	•	🌐 Web UI (React + Canvas)
+	•	📱 Mobile-friendly interface
+	•	⚡ Faster inference optimization
+	•	☁️ Cloud deployment (AWS/Azure)
 
 ⸻
 
 🧪 Troubleshooting
 
-❗ Docker Issues
+Docker not working?
 
 docker images
 
-	•	Ensure fastapi_backend image exists
-	•	Verify Docker is running
+✔ Ensure fastapi_backend exists
+✔ Docker is running
 
 ⸻
 
-❗ API Connection Failure
-	•	Check backend is live:
-👉 http://localhost:8000
+API not connecting?
+
+👉 Check: http://localhost:8000
 
 ⸻
 
-❗ Dependency Errors
+Dependency issues?
 
 pip install -r requirements.txt
 
@@ -162,16 +162,18 @@ pip install -r requirements.txt
 ⸻
 
 🙌 Acknowledgments
-	•	Inspired by: sudarsun/HandwrittenDigitClassifier
-	•	Refactored with a modular API-first architecture
+
+Inspired by:
+	•	sudarsun/HandwrittenDigitClassifier
+
+Refactored into a modular API-based system
 
 ⸻
 
-📌 Key Takeaway
+⭐ Why This Project Matters
 
-This project is not just a digit classifier —
-it’s a clean example of how to design ML systems like real products:
-	•	decoupled architecture
-	•	API-driven design
-	•	deployable backend
-	•	scalable foundation
+This is not just a digit classifier—it demonstrates:
+	•	API-first ML system design
+	•	Decoupled architecture
+	•	Real-world deployability
+	•	Clean engineering practices
